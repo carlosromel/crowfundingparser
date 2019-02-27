@@ -20,7 +20,7 @@ package br.com.atlaspodcast.crowdfunding.report;
 import java.math.BigDecimal;
 
 /**
- * Assinatura.
+ * Plano de apoio.
  *
  * @author Carlos Romel Pereira da Silva, carlos.romel@gmail.com
  */
@@ -35,23 +35,32 @@ public class Subscription {
      */
     private final BigDecimal value;
 
+    /**
+     * Construtor padrão.
+     *
+     * @param title Título do plano.
+     * @param value Valor do plano.
+     */
     public Subscription(String title,
                         BigDecimal value) {
         this.title = title;
         this.value = value;
     }
 
-    /*
-     * Valor da assinatura. , BigDecimal signatureValue private BigDecimal
-     * signatureValue; this.signatureValue = new BigDecimal(0);
-     * this.signatureValue = signatureValue; }
+    /**
+     * Título do plano.
      *
-     * public BigDecimal getSignatureValue() { return signatureValue; }
+     * @return
      */
     public String getTitle() {
         return title;
     }
 
+    /**
+     * Valor do plano.
+     *
+     * @return
+     */
     public BigDecimal getValue() {
         return value;
     }

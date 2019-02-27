@@ -34,12 +34,12 @@ public interface CrowdFunding {
      *
      * @return Verdadeiro quando o arquivo existe e pode ser lido.
      */
-    public boolean load(File reportFile);
+    boolean load(File reportFile);
 
     /**
      * Retorna a relação dos registros.
      *
      * @return Relação dos registros.
      */
-    public List<Ledger> getLedgers();
+    List<Ledger> getLedgers();
 }

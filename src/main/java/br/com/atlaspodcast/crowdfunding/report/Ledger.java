@@ -41,6 +41,14 @@ public class Ledger {
      */
     private final BigDecimal reversalValue;
 
+    /**
+     * Construtor padrão.
+     *
+     * @param lastPayment   data do último pagamento.
+     * @param status        Estado do pagamento.
+     * @param signature     Assinatura atual.
+     * @param reversalValue Data do estorno.
+     */
     public Ledger(Date lastPayment,
                   SignatureStatus status,
                   Signature signature,
@@ -51,18 +59,38 @@ public class Ledger {
         this.reversalValue = reversalValue;
     }
 
+    /**
+     * Data do último pagamento.
+     *
+     * @return
+     */
     public Date getLastPayment() {
         return lastPayment;
     }
 
+    /**
+     * Estado da assinatura.
+     *
+     * @return
+     */
     public SignatureStatus getSignatureStatus() {
         return signatureStatus;
     }
 
+    /**
+     * Assinatura atual.
+     *
+     * @return
+     */
     public Signature getSignature() {
         return signature;
     }
 
+    /**
+     * Data do estorno.
+     *
+     * @return
+     */
     public BigDecimal getReversalValue() {
         return reversalValue;
     }

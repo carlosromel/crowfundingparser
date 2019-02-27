@@ -49,6 +49,16 @@ public class Individual {
      */
     private final String personalId;
 
+    /**
+     * Construtor padrão.
+     *
+     * @param id         Identificador do apoiador.
+     * @param name       Nome do apoiador.
+     * @param user       Usuário do apoiador
+     * @param email      E-mail do apoiador.
+     * @param phone      Telefone do apoiador.
+     * @param personalId Identificacor pessoal do apoiador (CPF).
+     */
     public Individual(Long id,
                       String name,
                       String user,
@@ -63,26 +73,56 @@ public class Individual {
         this.personalId = personalId;
     }
 
+    /**
+     * Identificador do apoiador.
+     *
+     * @return
+     */
     public Long getId() {
         return id;
     }
 
+    /**
+     * Nome do apoiador.
+     *
+     * @return
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Usuário do apoiador.
+     *
+     * @return
+     */
     public String getUser() {
         return user;
     }
 
+    /**
+     * E-mail do apoiador.
+     *
+     * @return
+     */
     public String getEmail() {
         return email;
     }
 
+    /**
+     * Telefone do apoiador.
+     *
+     * @return
+     */
     public String getPhone() {
         return phone;
     }
 
+    /**
+     * Identificacor pessoal do apoiador (CPF).
+     *
+     * @return
+     */
     public String getPersonalId() {
         return personalId;
     }

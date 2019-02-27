@@ -91,7 +91,7 @@ public class PicPayCrowdFunding implements CrowdFunding {
         this.ledgers.add(getLedger(parts));
     }
 
-    private Individual getIndividual(String[] parts) {
+    public Individual getIndividual(String[] parts) {
         String individualName = parts[0];
         String individualUser = parts[1];
         String individualEmail = parts[2];

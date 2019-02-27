@@ -30,7 +30,13 @@ public class Signature {
      * Id da assinatura.
      */
     private final Long id;
+    /**
+     * Apoiador.
+     */
     private final Individual individual;
+    /**
+     * Plano assinado.
+     */
     private final Subscription subscription;
     /**
      * Motivo do cancelamento.
@@ -49,6 +55,17 @@ public class Signature {
      */
     private final Date signatureDate;
 
+    /**
+     * Construtor padrão.
+     *
+     * @param id                   Identificador único da assinatura.
+     * @param individual           Apoiador.
+     * @param subscription         Plano escolhido.
+     * @param reasonOfCancellation Data do cancelamento.
+     * @param cancelattionDate     Data da assinatura.
+     * @param dueDate              Data limite para pagamento.
+     * @param signatureDate        Data do pagamento.
+     */
     public Signature(Long id,
                      Individual individual,
                      Subscription subscription,
@@ -65,30 +82,65 @@ public class Signature {
         this.signatureDate = signatureDate;
     }
 
+    /**
+     * Identificador da assinatura.
+     *
+     * @return
+     */
     public Long getId() {
         return id;
     }
 
+    /**
+     * Apoiador.
+     *
+     * @return
+     */
     public Individual getIndividual() {
         return individual;
     }
 
+    /**
+     * Plano escolhido.
+     *
+     * @return
+     */
     public Subscription getSubscription() {
         return subscription;
     }
 
+    /**
+     * Motivo declarado do cancelamento.
+     *
+     * @return
+     */
     public String getReasonOfCancellation() {
         return reasonOfCancellation;
     }
 
+    /**
+     * Data do efetivo cancelamento.
+     *
+     * @return
+     */
     public Date getCancelattionDate() {
         return cancelattionDate;
     }
 
+    /**
+     * Data limite para o pagamento.
+     *
+     * @return
+     */
     public Date getDueDate() {
         return dueDate;
     }
 
+    /**
+     * Data da assinatutra atual.
+     *
+     * @return
+     */
     public Date getSignatureDate() {
         return signatureDate;
     }
