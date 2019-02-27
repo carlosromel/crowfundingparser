@@ -1,8 +1,8 @@
 Nome do assinante;Nome de usuário do assinante;Email do assinante;Telefone do assinante;Nome do plano;Valor do plano;Data da assinatura;Valor da assinatura;Data do último pagamento;Status da assinatura;Motivo do cancelamento;Data do cancelamento;Valor estornado;Id do assinante;Id da assinatura;CPF do assinante;Data do próximo pagamento
-;;;;Plano de R$ 15,00;15;30/05/2018 15:40;15;30/06/2018 15:44;cancelada;falta de pagamento;04/08/2018 18:52;;8157964;1756;;30/07/2018 18:41
+Ingrato 1;ingrato1;ingrato1@zaz.com.br;;Plano de R$ 15,00;15;30/05/2018 15:40;15;30/06/2018 15:44;cancelada;falta de pagamento;04/08/2018 18:52;;8157964;1756;;30/07/2018 18:41
 ;;;;Plano de R$ 5,00;5;05/06/2018 16:56;5;05/02/2019 21:25;ativa;;;;1506895;1848;;05/03/2019 19:56
 ;;;;Plano de R$ 15,00;15;06/06/2018 22:59;15;07/02/2019 03:58;ativa;;;;8184540;1881;;07/03/2019 01:59
-;;;;Plano de R$ 15,00;15;06/06/2018 23:01;15;06/06/2018 23:01;cancelada;solicitado pelo assinante;06/07/2018 23:01;0;8184540;1882;;06/07/2018 23:01
+Ingrato 2;ingrato2;ingrato2@terra.com.br;;Plano de R$ 15,00;15;06/06/2018 23:01;15;06/06/2018 23:01;cancelada;solicitado pelo assinante;06/07/2018 23:01;0;8184540;1882;;06/07/2018 23:01
 ;;;;Plano de R$ 15,00;15;29/06/2018 00:09;15;29/01/2019 04:30;ativa;;;;1091252;2435;;28/02/2019 03:09
 ;;;;Plano de R$ 5,00;5;17/07/2018 15:02;5;17/02/2019 18:28;ativa;;;;8235994;3007;;17/03/2019 18:02
 ;;;;Plano de R$ 5,00;5;19/07/2018 09:43;5;19/02/2019 12:59;ativa;;;;7990772;3105;;19/03/2019 12:43
@@ -10,14 +10,14 @@ Nome do assinante;Nome de usuário do assinante;Email do assinante;Telefone do as
 ;;;;Plano de R$ 5,00;5;23/07/2018 20:39;5;23/02/2019 23:46;ativa;;;;8373701;3358;;23/03/2019 23:39
 ;;;;Plano de R$ 5,00;5;25/07/2018 08:42;5;25/01/2019 09:54;ativa;;;;8254301;3411;;25/02/2019 08:42
 ;;;;Plano de R$ 15,00;15;25/07/2018 19:35;15;25/01/2019 20:57;ativa;;;;8383959;3448;;25/02/2019 19:35
-;;;;Plano de R$ 5,00;5;01/08/2018 13:38;5;01/10/2018 13:44;cancelada;solicitado pelo assinante;01/11/2018 13:44;0;8388409;3775;;01/11/2018 14:38
+Ingrato 3;ingrato3;ingrato3@uol.com.br;;Plano de R$ 5,00;5;01/08/2018 13:38;5;01/10/2018 13:44;cancelada;solicitado pelo assinante;01/11/2018 13:44;0;8388409;3775;;01/11/2018 14:38
 ;;;;Plano de R$ 5,00;5;01/08/2018 14:24;5;03/02/2019 21:39;ativa;;;;8426855;3777;;01/03/2019 14:24
 ;;;;Plano de R$ 15,00;15;08/08/2018 12:03;15;08/02/2019 13:04;ativa;;;;8157964;4075;;08/03/2019 12:03
 ;;;;Plano de R$ 5,00;5;29/08/2018 18:17;5;29/01/2019 19:23;ativa;;;;8542256;5154;;28/02/2019 18:17
 ;;;;Plano de R$ 15,00;15;09/09/2018 15:21;15;09/02/2019 16:44;ativa;;;;8598512;5674;;09/03/2019 15:21
-;;;;Plano de R$ 5,00;5;09/09/2018 22:20;5;09/12/2018 23:23;cancelada;falta de pagamento;15/01/2019 00:10;;7987144;5685;;10/01/2019 01:05
+Ingrato 4;ingrato4;ingrato4@sol.com.br;;Plano de R$ 5,00;5;09/09/2018 22:20;5;09/12/2018 23:23;cancelada;falta de pagamento;15/01/2019 00:10;;7987144;5685;;10/01/2019 01:05
 ;;;;Plano de R$ 15,00;15;10/10/2018 00:24;15;10/02/2019 01:45;ativa;;;;8715490;6873;;10/03/2019 00:24
-;;;;Plano de R$ 5,00;5;10/10/2018 18:02;5;10/11/2018 19:05;cancelada;falta de pagamento;15/12/2018 19:44;;8163232;6901;;10/12/2018 19:21
+Ingrato 5;ingrato5;ingrato5@bol.com.br;;Plano de R$ 5,00;5;10/10/2018 18:02;5;10/11/2018 19:05;cancelada;falta de pagamento;15/12/2018 19:44;;8163232;6901;;10/12/2018 19:21
 ;;;;Plano de R$ 5,00;5;21/10/2018 22:06;5;21/02/2019 22:35;ativa;;;;8214315;7293;;21/03/2019 22:06
 ;;;;Plano de R$ 5,00;5;01/11/2018 22:52;5;02/02/2019 00:06;ativa;;;;7850150;7679;;01/03/2019 22:52
 ;;;;Plano de R$ 5,00;5;07/11/2018 09:49;5;07/02/2019 09:58;ativa;;;;17065;7835;;07/03/2019 08:49
@@ -37,7 +37,7 @@ Nome do assinante;Nome de usuário do assinante;Email do assinante;Telefone do as
 ;;;;Plano pro Filipe não passar vergonha;10;06/01/2019 12:10;10;06/02/2019 12:15;ativa;;;;7700694;9718;;06/03/2019 11:10
 ;;;;Plano de R$ 15,00;15;12/01/2019 12:27;15;12/02/2019 12:28;ativa;;;;9123413;9926;;12/03/2019 11:27
 ;;;;Plano de R$ 5,00;5;15/01/2019 21:49;5;15/02/2019 22:28;ativa;;;;8498239;10041;;15/03/2019 20:49
-;;;;Plano pro Filipe não passar vergonha;10;19/01/2019 16:32;10;19/01/2019 16:32;cancelada;solicitado pelo assinante;19/02/2019 16:32;0;8676630;10181;;19/02/2019 15:32
+Ingrato 6;ingrato6;ingrato6@ig.com.br;;Plano pro Filipe não passar vergonha;10;19/01/2019 16:32;10;19/01/2019 16:32;cancelada;solicitado pelo assinante;19/02/2019 16:32;0;8676630;10181;;19/02/2019 15:32
 ;;;;Ouvinte Gabriel, @OGabiiel;2;22/01/2019 12:18;2;22/02/2019 11:35;ativa;;;;9169524;10256;;22/03/2019 11:18
 ;;;;Plano pro Filipe não passar vergonha;10;23/01/2019 21:39;10;23/02/2019 20:46;ativa;;;;9176684;10309;;23/03/2019 20:39
 ;;;;Plano pro Filipe não passar vergonha;10;06/02/2019 11:44;10;06/02/2019 11:44;ativa;;;;9243030;10898;;06/03/2019 10:44
