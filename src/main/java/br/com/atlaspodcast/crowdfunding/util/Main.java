@@ -17,11 +17,19 @@
  */
 package br.com.atlaspodcast.crowdfunding.util;
 
+import br.com.atlaspodcast.crowdfunding.report.Individual;
+import br.com.atlaspodcast.crowdfunding.report.Ledger;
+import br.com.atlaspodcast.crowdfunding.report.Signature;
 import br.com.atlaspodcast.crowdfunding.report.SignatureStatus;
 import br.com.atlaspodcast.crowdfunding.report.picpay.CrowdFunding;
 import br.com.atlaspodcast.crowdfunding.report.picpay.PicPayCrowdFunding;
 import java.io.File;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.List;
 import java.util.Map.Entry;
 
 /**
@@ -30,6 +38,7 @@ import java.util.Map.Entry;
  */
 public class Main {
 
+    private final SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
     private FundDetail fd = new FundDetail();
     private CrowdFunding cf = new PicPayCrowdFunding();
 
@@ -37,18 +46,25 @@ public class Main {
 
         Main main = new Main();
         main.cf.load(new File("src/test/resources/relatorio-editado.csv"));
+        main.showUsersToExclude(main.cf,
+                                new GregorianCalendar(2018, 9, 1).getTime());
 
         if (args.length > 0) {
 
             switch (args[0]) {
                 case "--signatures-by-status":
-                    main.printSignaturesByStatus(main.cf);
+                    main.showSignaturesByStatus(main.cf);
                     break;
                 case "--sum-active-signatures":
-                    main.printSumActiveSignatures(main.cf);
+                    main.showSumActiveSignatures(main.cf);
                     break;
                 case "--sum-cancelled-signatures":
-                    main.printSumCancelledSignatures(main.cf);
+                    main.showSumCancelledSignatures(main.cf);
+                    break;
+                case "--users-to-exclude":
+//                    main.showUsersToExclude(main.cf);
+                    main.showUsersToExclude(main.cf,
+                                            new GregorianCalendar(2018, 0, 1).getTime());
                     break;
                 default:
                     help();
@@ -66,7 +82,7 @@ public class Main {
         System.out.println("--sum-cancelled-signatures");
     }
 
-    private void printSignaturesByStatus(CrowdFunding cf) {
+    private void showSignaturesByStatus(CrowdFunding cf) {
         Integer total = 0;
 
         System.out.println("Estado das assinaturas");
@@ -82,13 +98,13 @@ public class Main {
         System.out.printf("%d\tTotal", total);
     }
 
-    private void printSumActiveSignatures(CrowdFunding cf) {
+    private void showSumActiveSignatures(CrowdFunding cf) {
         BigDecimal total = new BigDecimal(0);
         Integer count = 0;
 
-        for (Entry<String, BigDecimal> activeSignatures : fd.getActiveSignatures(cf).entrySet()) {
-            String title = activeSignatures.getKey();
-            BigDecimal sum = activeSignatures.getValue();
+        for (Entry<String, BigDecimal> activeSignature : fd.getActiveSignatures(cf).entrySet()) {
+            String title = activeSignature.getKey();
+            BigDecimal sum = activeSignature.getValue();
 
             ++count;
             total = total.add(sum);
@@ -100,13 +116,13 @@ public class Main {
                           count, total);
     }
 
-    private void printSumCancelledSignatures(CrowdFunding cf) {
+    private void showSumCancelledSignatures(CrowdFunding cf) {
         BigDecimal total = new BigDecimal(0);
         Integer count = 0;
 
-        for (Entry<String, BigDecimal> activeSignatures : fd.getCancelledSignatures(cf).entrySet()) {
-            String title = activeSignatures.getKey();
-            BigDecimal sum = activeSignatures.getValue();
+        for (Entry<String, BigDecimal> activeSignature : fd.getCancelledSignatures(cf).entrySet()) {
+            String title = activeSignature.getKey();
+            BigDecimal sum = activeSignature.getValue();
 
             ++count;
             total = total.add(sum);
@@ -116,5 +132,83 @@ public class Main {
 
         System.out.printf("%d\t%s\tQuantidade/valor de assinaturas canceladas.",
                           count, total);
+    }
+
+    private void showUsersToExclude(CrowdFunding cf) {
+        showUsersToExclude(cf, new GregorianCalendar(2018, 0, 1).getTime());
+    }
+
+    private void showUsersToExclude(CrowdFunding cf, Date startDate) {
+        List<Individual> individuals = new ArrayList<>();
+        boolean showHeader = false;
+
+        for (Ledger ledger : cf.getLedgers()) {
+            Signature signature = ledger.getSignature();
+            Individual individual = signature.getIndividual();
+
+            if (ledger.getSignatureStatus() == SignatureStatus.CANCELLED
+                && signature.getCancelattionDate().after(startDate)) {
+                if (!showHeader) {
+                    System.out.printf("%s\t%s\t%s\t\t\t%s%n",
+                                      "Último pagamento",
+                                      "Data do cancelamento",
+                                      "E-mail",
+                                      "Usuário",
+                                      "Nome completo");
+                    System.out.println("----------------------------------------------------------------------------------");
+                    showHeader = true;
+                }
+                System.out.printf("%s\t%s\t%s\t%s%n",
+                                  sdf.format(signature.getDueDate()),
+                                  sdf.format(signature.getCancelattionDate()),
+                                  individual.getEmail(),
+                                  individual.getUser(),
+                                  individual.getName());
+                individuals.add(individual);
+            }
+        }
+
+        if (individuals.size() > 0) {
+            System.out.printf("%d\tAssinaturas canceladas.%n", individuals.size());
+        } else {
+            System.out.println("Nenhuma assinatura cancelada!");
+        }
+    }
+
+    private void showUsersToInclude(CrowdFunding cf, Date startDate) {
+        List<Individual> individuals = new ArrayList<>();
+        boolean showHeader = false;
+
+        for (Ledger ledger : cf.getLedgers()) {
+            Signature signature = ledger.getSignature();
+            Individual individual = signature.getIndividual();
+
+            if (ledger.getSignatureStatus() == SignatureStatus.ACTIVE
+                && signature.getCancelattionDate().after(startDate)) {
+                if (!showHeader) {
+                    System.out.printf("%s\t%s\t%s\t\t\t%s%n",
+                                      "Data da assinatura",
+                                      "Último pagamento",
+                                      "E-mail",
+                                      "Usuário",
+                                      "Nome completo");
+                    System.out.println("----------------------------------------------------------------------------------");
+                    showHeader = true;
+                }
+                System.out.printf("%s\t%s\t%s\t%s%n",
+                                  sdf.format(signature.getSignatureDate()),
+                                  sdf.format(signature.getDueDate()),
+                                  individual.getEmail(),
+                                  individual.getUser(),
+                                  individual.getName());
+                individuals.add(individual);
+            }
+        }
+
+        if (individuals.size() > 0) {
+            System.out.printf("%d\tAssinaturas canceladas.%n", individuals.size());
+        } else {
+            System.out.println("Nenhuma assinatura cancelada!");
+        }
     }
 }
